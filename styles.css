@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, Helvetica;
+}
+
+/* Nav bar CSS Code */
+
+nav li {
+    display: inline;
+    margin-right: 10px;
+  
+
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a:hover {
+    /* color: #0078d4; */
+    color: #0078d4;
+}
+
+nav li.right {
+    float: right;
+}
+
+nav li input {
+    display: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    
+}
+
+nav {
+    border:  1px solid black;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.title {
+    text-align: center;
+}
+
+.head {
+    font-size: 100px;
+}
+
+.options{
+    list-style: none;
+    padding: 10px;
+    /* border: 1px solid black; */
+    text-align: center;
+}
+
+.start {
+    margin: auto;
+    width: 100px;
+    height: 30px;
+    background-color: cornflowerblue;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.last {
+    margin: auto;
+    width: 100px;
+    height: 30px;
+    background-color: cornflowerblue;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+
+.version {
+    margin-top: 330px;
+    font-family: Arial, Helvetica;
+    padding: 20px;
+    font-size: 12px;
+}
+
+.fa-solid {
+    color: red;
+}
