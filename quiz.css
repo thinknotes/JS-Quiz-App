@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, Helvetica;
+}
+
+/* Nav bar CSS Code */
+
+nav li {
+    display: inline;
+    margin-right: 10px;
+  
+
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a:hover {
+    /* color: #0078d4; */
+    color: #0078d4;
+}
+
+nav li.right {
+    float: right;
+}
+
+nav li input {
+    display: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    
+}
+
+nav {
+    border:  1px solid black;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.title {
+     margin-top: 100px;
+     padding: 20px;
+     font-size: 25px;
+}
+
+.subtitle{
+    padding: 20px;
+    color: gray;
+    font-size: 14px;
+}
+
+.timer{
+    float: right;
+    padding: 20px;
+    margin-top: -70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: cornflowerblue;
+    border: 1px solid cornflowerblue;
+    border-radius: 5px;
+    height: 3px;
+    color: white;
+    /* border: 1px solid black; */
+    
+}
+
+.time {
+    padding: 20px;
+    background: #343434;
+    height: 3px;
+    line-height: 3px;
+    border-radius: 5px;  
+    border: 1px solid #343434; 
+    border-radius: 50px;
+    color: white;
+    width: 3px;
+} 
+
+.center {
+    margin-left: 300px;
+    margin-top: 100px;
+}
+
+.left{
+    margin-left: 400px;
+    margin-top: 200px;
+}
+
+button {
+     margin: auto;
+    width: 100px;
+    height: 30px;
+    background-color: cornflowerblue;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}

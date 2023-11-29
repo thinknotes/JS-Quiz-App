@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Free Quiz Game</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>SwiftUI Quiz </title>
     <script src="script.js"></script>
     <script src="https://kit.fontawesome.com/af25c5ca7f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
     <nav>
@@ -21,27 +21,25 @@
         </ul>
     </nav>
 
-    <section>
-        <div class="title">
-            <h1 class="head">SwiftUI</h1>
-            <h2>Answer 10 questions based on </h2>
-            <ul class="options">
-                <li>Colors</li>
-                <li>Views</li>
-                <li>Text</li>
-                <li>Syntax</li>
-            </ul>
-
-            <button class="start" onclick="location.href='quizview.html'">Start Quiz</button>
-            <button class="last">Last Score</button>
+    <Section>
+        <div class="title" id="title">SwiftUI Question 1</div>
+        <div class="subtitle" id="subtitle">Question 1 out of 10</div>
+        <div class="timer">
+            <div class="timetext">Time Elapsed</div>
+            <div class="time">01</div>
         </div>
-       
-        <div class="version">
-            <p>Version: 1.0</p>
-            <p>Made with <span><i class="fa-solid fa-beat fa-heart"></i></span> in San Francisco, CA</p>
-            <p>Copyright: Avi Bansal 2023</p>
-        </div>  
-        
+    </Section>
+
+    <section>
+        <button class="center" id="button1">Answer 1</button>
+        <button class="center" id="button2">Answer 2</button>
+        <button class="center" id="button3">Answer 3</button>
+        <button class="center" id="button4">Answer 4</button>
+    </section>
+
+    <section>
+        <button class="left" id="NQ">Next Question</button>
+        <button class="left" onclick="location.href='quiz.html'">Quit Game</button>
     </section>
     
 </body>
