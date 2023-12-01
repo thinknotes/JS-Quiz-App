@@ -102,3 +102,11 @@ button {
     color: white;
     cursor: pointer;
 }
+
+.answeriscorrect {
+    background-color: green;
+}
+
+.answerisincorrect {
+  background-color: red;
+}
