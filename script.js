@@ -121,29 +121,22 @@ const answerbutton2 = document.getElementById("button2");
 const answerbutton3 = document.getElementById("button3");
 const answerbutton4 = document.getElementById("button4");
 const nextQuestion = document.getElementById("NQ");
+const scoreElement = document.getElementById("scoreValue");
+const scoreDiv = document.getElementById("score");
 
 
 let currentQuestion = 0;
 let timer;
+let score = 0;
 
 console.log(questions.answers)
 
-function startTimer() {
-    let timeLeft = 60
-    time = setInterval(function() {
-        if (timeLeft <= 0) {
-            clearInterval(timer)
-            console.log("Time is up for this question")
-        } else {
-            console.log("Time remaing for this question is", timeLeft)
-            timeLeft--;
-        }
-    }, 1000);
-}
+
 
 function stopTimer() {
     clearInterval(timer);
 }
+
 
 
 function LoadQuestion() {
@@ -157,45 +150,77 @@ function LoadQuestion() {
   console.log(answers.answers)
   console.log(answers)
   answerbutton1.innerText = question.answers.a
-//   answerbutton1.innerText = options.currentQuestion.a
-//   console.log(questionNumber)
+  let isClicked = false
+  const scoreinpercentage = (score / 10) * 100;
+ 
+
   console.log(questionTitle)
   buttons.forEach(button => {
     button.innerHTML = '';
     button.classList.remove("answeriscorrect", "answerisincorrect")
-    button.disabled = false;
+    
+
   })
+   
+  
+   
+
+  
 
   for(let i = 0; i < answers.length; i++) {
     buttons[i].innerText = question.answers[i].option;
+        console.log(isClicked)
     buttons[i].onclick = function() {
-        buttons.innerText = question.answers
         if(answers[i].correct) {
               console.log("Correct answer for" + question.currentQuestion)
-              buttons[i].classList.add("answeriscorrect")
-              buttons.classList.remove()
+              if(!isClicked) {
+                buttons[i].classList.add("answeriscorrect")
+                isClicked = true
+                score++;
+                scoreElement.innerText = score;
+                // scoreElement.innerText = `${scoreinpercentage.toFixed(2)}%`
+                console.log("DEBUG Score has been updated to " + score + " Out of 10")
+
+              }
               stopTimer()
+              console.log(isClicked)
+              
+           
+            
               
         } else {
             console.log("Incorrect answer for" + question.currentQuestion)
-            buttons[i].classList.add("answerisincorrect")
-            buttons.classList.remove()
+            if(!isClicked) {
+                buttons[i].classList.add("answerisincorrect")
+                isClicked = true
+            }
             stopTimer()
+            console.log(isClicked)
+            
         }
         
     };
-  }
+  
+    if (questions.length > 10) {
+        scoreElement.innerText = `%`+score
+        scoreDiv.style.display = "block";
+        
+    }
 
+}
+ 
   
 }
+
+
 
 nextQuestion.addEventListener("click", function() {
     currentQuestion++;
     console.log("Next question has been clicked")
     if(currentQuestion < 10) {
         LoadQuestion();
-        startTimer();
-        // questionTitle.innerText = 
+       
+       
         
     } else {
        stopTimer()
@@ -205,4 +230,4 @@ nextQuestion.addEventListener("click", function() {
 
 
 LoadQuestion();
-startTimer();
+
