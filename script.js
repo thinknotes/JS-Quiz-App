@@ -1,3 +1,4 @@
+// Questions for quiz game
 const questions  = {
     0:{
         question: "Which programming language is primarily used in conjunction with Swift for iOS app development?",
@@ -113,7 +114,7 @@ const questions  = {
 
 
 
-
+// const for quiz view
 const questionTitle = document.getElementById("title");
 const questionNumber = document.getElementById("subtitle");
 const answerbutton1 = document.getElementById("button1");
@@ -125,36 +126,37 @@ const scoreElement = document.getElementById("scoreValue");
 const scoreDiv = document.getElementById("score");
 
 
+//Keep track of current question 
 let currentQuestion = 0;
-let timer;
+//Keep track of score 
 let score = 0;
 
 console.log(questions.answers)
 
 
 
-function stopTimer() {
-    clearInterval(timer);
-}
 
 
 
+
+//Load next question on screen
 function LoadQuestion() {
   const question = questions[currentQuestion];
-  const buttons = document.querySelectorAll(".center");
+  const buttons = document.querySelectorAll(".center"); //Find all the question buttons on the screen
   console.log(buttons)
   console.log("DEBUG:"+ question.question)
   questionTitle.innerText = question.question;
-  questionNumber.innerText = `Question ${currentQuestion + 1} out of 10`;
+  questionNumber.innerText = `Question ${currentQuestion + 1} out of 10`; //Tells the user what question they are on
   const answers = question.answers;
   console.log(answers.answers)
   console.log(answers)
   answerbutton1.innerText = question.answers.a
-  let isClicked = false
-  const scoreinpercentage = (score / 10) * 100;
+  let isClicked = false //Only make one button work and allows the user to click on one button
+  const scoreinpercentage = (score / 10) * 100; 
  
 
   console.log(questionTitle)
+  //Clear the buttons last response and shows empty when the users click next question 
   buttons.forEach(button => {
     button.innerHTML = '';
     button.classList.remove("answeriscorrect", "answerisincorrect")
@@ -168,21 +170,21 @@ function LoadQuestion() {
   
 
   for(let i = 0; i < answers.length; i++) {
-    buttons[i].innerText = question.answers[i].option;
+    buttons[i].innerText = question.answers[i].option; //Changes the button text to questions and based on answers provided
         console.log(isClicked)
     buttons[i].onclick = function() {
+        //Check if answers is correct or wrong
         if(answers[i].correct) {
               console.log("Correct answer for" + question.currentQuestion)
               if(!isClicked) {
-                buttons[i].classList.add("answeriscorrect")
-                isClicked = true
-                score++;
-                scoreElement.innerText = score;
-                // scoreElement.innerText = `${scoreinpercentage.toFixed(2)}%`
+                buttons[i].classList.add("answeriscorrect") //Add css class which changes background to green
+                isClicked = true //Updates isClicked
+                score++; //Updates score if questions is correct
+                scoreElement.innerText = score; //Shows score
                 console.log("DEBUG Score has been updated to " + score + " Out of 10")
 
               }
-              stopTimer()
+             
               console.log(isClicked)
               
            
@@ -191,21 +193,17 @@ function LoadQuestion() {
         } else {
             console.log("Incorrect answer for" + question.currentQuestion)
             if(!isClicked) {
-                buttons[i].classList.add("answerisincorrect")
-                isClicked = true
+                buttons[i].classList.add("answerisincorrect") //Add css class which changes background to red
+                isClicked = true //Updates isClicked
             }
-            stopTimer()
+            
             console.log(isClicked)
             
         }
         
     };
   
-    if (questions.length > 10) {
-        scoreElement.innerText = `%`+score
-        scoreDiv.style.display = "block";
-        
-    }
+    
 
 }
  
@@ -213,21 +211,26 @@ function LoadQuestion() {
 }
 
 
-
+//What happens when the user clciks the next question button
 nextQuestion.addEventListener("click", function() {
-    currentQuestion++;
+    currentQuestion++; //Updates question count
     console.log("Next question has been clicked")
+    //Load questions if there are less then 10 questions reaming
     if(currentQuestion < 10) {
         LoadQuestion();
        
        
         
     } else {
-       stopTimer()
+        //Shows score after questions are up
+        scoreElement.innerText = score + ` Out of 10`;
+        scoreDiv.style.display = "block";
+        scoreDiv.style.padding = "20px";
+        scoreDiv.style.fontSize = "20px";
     }
 });
 
 
-
+//Make load question work
 LoadQuestion();
 
